@@ -86,7 +86,7 @@ by performing transformations directly inside PostgreSQL.
 The final movie data was visualized using **Power BI** to explore ratings,
 genres, release years, and summary metrics.
 
-![Power BI Dashboard](images/powerbi_dashboard.png)
+![Power BI Dashboard](Images/powerbi_dashboard.png)
 
 ---
 
