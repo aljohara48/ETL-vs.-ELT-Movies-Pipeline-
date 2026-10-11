@@ -1,38 +1,33 @@
-# 🎬 Movie ETL vs ELT Data Pipeline
+# 🎬 ETL vs. ELT Movies Pipeline
 
-A data engineering project that builds and compares **ETL** and **ELT**
-pipelines using a movie dataset.
+A data engineering project comparing **ETL** and **ELT** pipelines using a movie dataset.
 
-The project demonstrates data extraction, validation, transformation,
-storage, automation, and visualization using modern data engineering tools.
+The project demonstrates data extraction, validation, transformation, storage,
+automation, and visualization.
 
 ---
 
 ## 🔄 ETL Pipeline
 
-**CSV + OMDb API → Python Transformation → SQLite → Power BI**
-
-The ETL pipeline:
+**CSV + OMDb API → Python/Pandas → SQLite → Power BI**
 
 - Extracted movie data from CSV and the OMDb API
-- Cleaned and standardized the data using Python and Pandas
+- Cleaned and standardized data using Python and Pandas
 - Handled missing values and duplicates
 - Merged external movie metadata
-- Loaded the final dataset into SQLite
-- Visualized the processed data using Power BI
+- Loaded the transformed data into SQLite
+- Visualized the final data using Power BI
 
 ---
 
 ## ⚙️ ELT Pipeline
 
-**CSV + SQLite → Validation → PostgreSQL → SQL Transformation**
-
-The ELT pipeline:
+**CSV + SQLite → Great Expectations → PostgreSQL → SQL Transformation**
 
 - Extracted raw data from CSV and SQLite
 - Validated data using Great Expectations
-- Loaded raw data into PostgreSQL staging tables
-- Applied SQL transformations inside PostgreSQL
+- Loaded validated data into PostgreSQL staging tables
+- Applied SQL-based transformations in PostgreSQL
 - Cleaned null values, duplicates, text fields, years, and ratings
 - Produced analysis-ready final tables
 
@@ -55,10 +50,10 @@ The ELT pipeline:
 
 ## ✅ Data Quality
 
-Validation rules included:
+Validation included:
 
-- Required ID values must not be null
-- Movie ratings must be between 0 and 10
+- Non-null ID checks
+- Rating range validation (0–10)
 - Duplicate removal
 - Missing-value handling
 - Data type validation
@@ -66,24 +61,32 @@ Validation rules included:
 
 ---
 
-## 📊 ETL vs ELT
+## 📊 ETL vs. ELT
 
 | Metric | ETL | ELT |
-|---|---|---|
+|---|---:|---:|
 | Execution Time | 6 sec | 0.5643 sec |
 | Scalability | Lower | Higher |
 | Efficiency | Lower | Higher |
 
 In this project's test environment, the ELT pipeline completed faster
-and provided greater flexibility by performing transformations directly
-inside PostgreSQL.
+by performing transformations directly inside PostgreSQL.
+
+---
+
+## 💻 Source Code
+
+- [ETL Pipeline](src/etl_pipeline.py)
+- [ELT Pipeline](src/elt_pipeline.py)
 
 ---
 
 ## 📈 Dashboard
 
-The final cleaned movie data was visualized using **Power BI** to explore
-movie ratings, genres, release years, and summary metrics.
+The final movie data was visualized using **Power BI** to explore ratings,
+genres, release years, and summary metrics.
+
+![Power BI Dashboard](images/powerbi_dashboard.png)
 
 ---
 
